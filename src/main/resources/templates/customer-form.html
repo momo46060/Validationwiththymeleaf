@@ -6,16 +6,23 @@
 </head>
 <body>
 <br>
-<form th:object="${customer}" th:action="@{/processForm}" method="post" >
+<form th:object="${customer}" th:action="@{/processForm}" method="post">
     First Name: <input type="text" th:field="*{firstName}"/>
     <br><br>
     Last Name (*): <input type="text" name="lastName"
                           th:field="*{lastName}"/>
     <span th:if="${#fields.hasErrors('lastName')}"
-          th:errors="*{lastName}" style="color: red;" class="error"></span>
+          th:errors="*{lastName}" style="color: #630707;" class="error"></span>
+    <br><br>
+    Passes: <input type="number" th:field="*{passes}"/>
+    <span th:if="${#fields.hasErrors('passes')}"
+          th:errors="*{passes}" style="color: #630707;" class="error"></span>
+    <br><br>
+    Postal Code: <input type="text" th:field="*{postalCode}"/>
+    <span th:if="${#fields.hasErrors('postalCode')}"
+          th:errors="*{postalCode}" style="color: #630707;" class="error"></span>
     <br><br>
     <input type="submit" value="Submit"/>
-
 </form>
 </body>
 </html>
